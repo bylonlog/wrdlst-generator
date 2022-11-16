@@ -12,13 +12,10 @@ Part of their home address
 The name of their favorite book or movie
 Celebrity names
 
-#
-The name of the website the password is for
-#
-
+## Info
 This program is an interactive list generator that will create a password wordlist and can be used in penetration testing and forensic investigations to crack passwords.
 
-#
+## Installation & Usage
 ```
 install git
 
@@ -30,5 +27,7 @@ install python3
 git clone https://github.com/bylonlog/paswrd-generator
 
 python paswrd.py
+
+Now it is at ur hands
 
 ```
