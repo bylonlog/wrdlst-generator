@@ -19,14 +19,16 @@ The name of the website the password is for
 This program is an interactive list generator that will create a password wordlist and can be used in penetration testing and forensic investigations to crack passwords.
 
 #
+```
+install git
 
-# install git
+install python 
 
-# install python 
-
-# install python3
+install python3
 
 
 git clone https://github.com/bylonlog/paswrd-generator
 
 python paswrd.py
+
+```
