@@ -1,4 +1,4 @@
-# PASWRD GENERATOR
+# WRDLST GENERATOR
 
 Create a password wordlist with the target information.
 
