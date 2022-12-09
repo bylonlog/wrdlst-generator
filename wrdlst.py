@@ -1,3 +1,15 @@
+import colorama
+from colorama import Fore
+
+print(Fore.BLUE + "----------------------")
+print(Fore.WHITE + "Tool Name: WRDLST-GENERATOR")
+print("Purpose: WordList Generator")
+print("Developer: @BylonLog")
+print("Contact: https://bylonlog.github.io")
+print("All Theh Best For Ur Ethical Purpose")
+print(Fore.BLUE + "________________________________________________")
+print(Fore.RED + "Enter Targeted User Info- Below")
+print(Fore.WHITE + "------------------------------------------------")
 list=[]
 names=[]
 temp_names=[]
