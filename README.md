@@ -24,9 +24,9 @@ install python
 install python3
 
 
-git clone https://github.com/bylonlog/paswrd-generator
+git clone https://github.com/bylonlog/wrdlst-generator
 
-python paswrd.py
+python wrdlst.py
 
 Now it is at ur hands
 
