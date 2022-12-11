@@ -1,98 +1,28 @@
-import colorama
-from colorama import Fore
+print("_____________________________________")
+print("Welcome User")
+print("Tool Name: WRDLST-GENERATOR")
+print("Purpose: Wordlist creation")
+print("Licence: WTFPL Licence")
+print("-------------------------------------")
+print("Give Datails, I mean words about the Targeted Victims. How much details u give that much possibility of success. Scientifically How much words you give that was close to the target is driectly propotional to the success rate. ")
+print("-------------------------------------")
 
-print(Fore.BLUE + "----------------------")
-print(Fore.WHITE + "Tool Name: WRDLST-GENERATOR")
-print("Purpose: WordList Generator")
-print("Developer: @BylonLog")
-print("Contact: https://bylonlog.github.io")
-print("All Theh Best For Ur Ethical Purpose")
-print(Fore.BLUE + "________________________________________________")
-print(Fore.RED + "Enter Targeted User Info- Below")
-print(Fore.WHITE + "------------------------------------------------")
-list=[]
-names=[]
-temp_names=[]
-phoneNo=''
-dob=input("Date of birth(DDMMYYYY):")
-if(len(dob)==8):
-    day=dob[:2]
-    month=dob[2:4]
-    year=dob[4:]
-else:
-    print("Wrong format for DOB, make sure it is 8 numbers in DDMMYYYY")
-    exit()
+# Import the necessary modules
+import itertools
 
-phoneNo=input("Enter phone no:")
+# Set the minimum and maximum length of the words in the wordlist
+min_length = 1
+max_length = 6
 
-def ListOfImportantWords():
-    names.append(input("First name:"))
-    names.append(input("Surname:"))
-    names.append(input("Nickname:"))
-    print("\n")
-    names.append(input("Partners name:"))
-    names.append(input("Partners Nickname:"))
-    print("\n")
-    names.append(input("Pets name:"))
-    names.append(input("Company name:"))
-    print("\n")
-    names.append(input("Childs name:"))
-    names.append(input("Childs nickname:"))
-    print("\n")
-    names.append(input("City:"))
-    names.append(input("Country:"))
-    names.append(input("Favourite colour:"))
-    print("Enter all other keywords: ")
-    while True:
-        inp = input()
-        if inp == '':
-            break
-        names.append(inp)
-    while('' in names) : 
-        names.remove('') 
+# Ask the user to provide a list of words
+words = input('Enter a list of words: ').split()
 
-def permute(inp): 
-    n = len(inp) 
-   
-    mx = 1 << n 
-   
-    inp = inp.lower() 
-      
-    for i in range(mx): 
-        combination = [k for k in inp] 
-        for j in range(n): 
-            if (((i >> j) & 1) == 1): 
-                combination[j] = inp[j].upper() 
-   
-        temp = "" 
-        for i in combination: 
-            temp += i 
-        temp_names.append(temp) 
+# Open a file for writing the wordlist
+with open('wordlist.txt', 'w') as f:
+  # Use the itertools module to generate all possible combinations of words
+  # with the specified length range
+  for length in range(min_length, max_length + 1):
+    for word in itertools.combinations_with_replacement(words, length):
+      # Write each generated word to the file
+      f.write(''.join(word) + '\n')
 
-
-
-def WordListCreator(list):
-    for word in names:
-        for i in range(0,len(word)+1):
-            list.append(word[:i]+day+word[i:])
-            list.append(word[:i]+month+word[i:])
-            list.append(word[:i]+year+word[i:])
-            if len(year)==4:
-                list.append(word[:i]+year[2:]+word[i:])
-            list.append(word[:i]+phoneNo+word[i:])
-    if not phoneNo=='':
-        list.append(phoneNo)
-
-def WriteToFile(list):
-    with open('wordlist.txt', 'w') as f:
-        for item in list:
-            f.write("%s\n" % item)
-
-
-
-ListOfImportantWords()
-for i in names:
-    permute(i)       
-names=names+temp_names
-WordListCreator(list)
-WriteToFile(list)
